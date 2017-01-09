@@ -1,0 +1,38 @@
+.minesweeper {
+    $cellSize: 40px;
+
+    display: inline-block;
+
+    .minesweeper-row {
+        white-space: nowrap;
+        font-size: 0;
+
+        &:not(:last-child) .minesweeper-cell {
+            margin-bottom: -1px;
+        }
+    }
+
+    .minesweeper-cell {
+        display: inline-block;
+        vertical-align: top;
+        height: $cellSize;
+        width: $cellSize;
+        border: 1px solid #000;
+        cursor: pointer;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+
+        &:not(:last-child) {
+            margin-right: -1px;
+        }
+
+        &.cell-unselected {
+            background: #999;
+        }
+
+        &.cell-bomb {
+            background: red;
+        }
+    }
+}
