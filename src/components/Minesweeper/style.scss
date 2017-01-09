@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 .minesweeper {
     $cellSize: 40px;
-
     display: inline-block;
+    font-family: 'Lato', sans-serif;
+    user-select: none;
 
     .minesweeper-row {
         white-space: nowrap;
@@ -34,5 +37,15 @@
         &.cell-bomb {
             background: red;
         }
+    }
+
+    .start-over {
+        appearance: none;
+        border: 1px solid #333;
+        border-radius: 3px;
+        background: #eee;
+        font-size: 20px;
+        margin: 20px auto;
+        padding: 5px 20px;
     }
 }
