@@ -1,6 +1,7 @@
 {
   "name": "minesweeper",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": "Jade Pennig <jade@pennig.name>",
   "private": true,
   "devDependencies": {
     "create-react-app-sass": "^1.1.0",

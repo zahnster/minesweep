@@ -6,11 +6,11 @@ const SAD_GAME = '😵';
 const COMPLETE_GAME = '😁';
 const BOMB = '💣';
 const DEFAULT_GAME_STATE = {
-    rows: 7,
-    cols: 7,
-    bombs: 5,
+    rows: 10,
+    cols: 20,
+    bombs: 30,
     flags: 0,
-    bombsLeft: 5,
+    bombsLeft: 30,
     board: [], // { row: 0, col: 0, value: '💣', isSecret: true, isFlagged: false }
     gameStatus: HAPPY_GAME  // 🙂 | 😵    
 };
@@ -19,10 +19,15 @@ class Minesweeper extends Component {
     constructor() {
         super();
         
+        // initializing state
         this.state = DEFAULT_GAME_STATE;
-        this.state.board = this.buildBoard();
 
+        // bound methods
         this.reset = this.reset.bind(this);
+    }
+
+    componentWillMount() {
+        this.setState({...this.state, board: this.buildBoard() });
     }
 
     componentDidMount() {
@@ -232,9 +237,6 @@ class Minesweeper extends Component {
 
                         <dt>Status</dt>
                         <dd>{status}</dd>
-
-                        <dt>Actual Bombs Left</dt>
-                        <dd>{this.state.bombsLeft}</dd>
                     </dl>
                 </div>
 
