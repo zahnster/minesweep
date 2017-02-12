@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Slabo+13px');
-
-$backgroundColor: #3B6874;
-$primaryColor: #719FAC;
+@import 'vars';
 
 * {
 	padding: 0;
@@ -14,19 +12,28 @@ html {
 }
 
 body {
-	font-family: 'Slabo 13px';
 	background: $backgroundColor;
 	color: $primaryColor;
 }
 
+body,
+input {
+	font-family: 'Slabo 13px';
+}
+
+.app {
+	position: relative;
+	height: 100vh;
+}
+
 a {
-	color: $primaryColor;
+	color: $secondaryColor;
 	position: relative;
 	text-decoration: none;
 
 	&::before {
 		content: '';
-		background: $primaryColor;
+		background: $secondaryColor;
 		position: absolute;
 		left: 50%; right: 50%; bottom: 0;
 		height: 1px;

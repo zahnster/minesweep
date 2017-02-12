@@ -1,0 +1,122 @@
+@import '../../vars';
+
+$cellSize: 2rem;
+
+.board-builder {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	.title {
+		text-transform: lowercase;
+		font-size: 4rem;
+		font-weight: normal;
+	}
+
+	.board-builder-board {
+		margin-top: 6rem;
+		position: relative;
+		display: inline-block;
+
+		.row {
+			line-height: 0;
+			margin: 2px 0;
+		}
+
+		.cell {
+			background: $primaryColor;
+			height: $cellSize; width: $cellSize;
+			margin-right: 2px;
+			display: inline-block;
+		}
+
+		.controls {
+			position: absolute;
+
+			.control {
+				position: absolute;
+				-webkit-appearance: none;
+				border: none;
+				background: none;
+				color: $primaryColor;
+				font-size: 4rem;
+				line-height: 0.8;
+				outline: none;
+				cursor: pointer;
+
+				&:active {
+					text-shadow: 0 0 5px $primaryColor;
+				}
+			}
+
+			&.controls-row {
+				right: 100%; top: 0; bottom: 0;
+				width: 4rem;
+
+				.subtract {
+					top: 0;
+					right: 1.4rem;
+				}
+
+				.add {
+					bottom: 0;
+					right: 1rem;
+				}
+			}
+
+			&.controls-col {
+				bottom: 100%; left: 0; right: 0;
+				height: 4rem;
+
+				.subtract {
+					left: 0;
+				}
+
+				.add {
+					right: 0;
+				}
+			}
+		}
+	}
+
+	.bomb-count {
+		margin-top: 1rem;
+
+		&::before {
+			content: '💣';
+			margin-right: 1rem;
+			position: relative;
+			top: 6px;
+			text-shadow: 0 0 5px $primaryColor;
+		}
+
+		input {
+			background: $backgroundColor;
+			border: 1px solid transparent;
+			font-size: 3rem;
+			color: $primaryColor;
+			transition: 400ms ease;
+			padding: 0.2rem 0.4rem;
+			width: 6.3rem;
+
+			&:hover {
+				background: lighten($backgroundColor, 2%)
+			}
+		}
+
+		font-size: 3rem;
+	}
+
+	&.game-state-enter {
+		position: absolute;
+		top: 0; left: 100%;
+		width: 100%; height: 100%;
+		transition: 500ms ease;
+	}
+
+	&.game-state-enter-active {
+		left: 0;
+	}
+}

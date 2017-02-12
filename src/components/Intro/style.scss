@@ -1,5 +1,5 @@
 .intro {
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -25,6 +25,27 @@
 		.or {
 			font-size: 1.6rem;
 			margin: 0 1.5rem;
+		}
+	}
+
+	&.game-state-leave {
+		position: absolute;
+		top: 0; left: 0;
+		height: 100%; width: 100%;
+
+		transition: 500ms ease;
+
+		.intro-content {
+			transition: 500ms ease;
+			opacity: 1;
+		}
+	}
+
+	&.game-state-leave-active {
+		left: -100vw;
+
+		.intro-content {
+			opacity: 0;
 		}
 	}
 }
