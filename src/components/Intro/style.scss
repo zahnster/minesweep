@@ -1,0 +1,30 @@
+.intro {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	.title {
+		font-size: 4rem;
+		position: relative;
+
+		&::before {
+			content: '💣';
+			position: absolute;
+			text-shadow: 0 0 20px #719FAC;
+			bottom: 100%; left: 50%;
+			width: 100px;
+			margin-left: -50px;
+		}
+	}
+
+	.controls {
+		margin-top: 1rem;
+
+		.or {
+			font-size: 1.6rem;
+			margin: 0 1.5rem;
+		}
+	}
+}
