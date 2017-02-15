@@ -16,24 +16,44 @@ class App extends Component {
         }
 
         this.createCustomGame = this.createCustomGame.bind(this)
-        this.playRandomGame = this.playRandomGame.bind(this)
+        this.playGame = this.playGame.bind(this)
     }
 
     createCustomGame() {
         this.setState({ gameState: 'boardBuilder' })
     }
 
-    playRandomGame() {
+    playGame(setting) {
+        console.log('play', setting)
+
+        switch (setting) {
+            case 'easy':
+            break
+
+            case 'medium':
+            break
+
+            case 'hard':
+            break
+
+            case 'evil':
+            break
+
+            default:
+            break
+        }
+    }
+
+    startGame(prefs) {
         this.setState({ gameState: 'game' })
     }
 
     render() {
         let gameStateComponent = null
 
-
         switch(this.state.gameState) {
             case 'intro':
-                gameStateComponent = <Intro key='intro' createCustomGame={this.createCustomGame} playRandomGame={this.playRandomGame} />
+                gameStateComponent = <Intro key='intro' createCustomGame={this.createCustomGame} playGame={this.playGame} />
             break
 
             case 'boardBuilder':

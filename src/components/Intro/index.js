@@ -10,7 +10,7 @@ export default (props) => {
 				<h1 className='title'>minesweep</h1>
 
 				<div className='controls'>
-					<Dropdown />
+					<Dropdown playGame={props.playGame} />
 					
 					<span className='or'>or</span>
 					
