@@ -22,6 +22,21 @@ $timingOffset: 0.4;
         margin-top: -4px;
         transition: $duration ease;
         background: url('/images/dropdown-arrow.png') center no-repeat;
+        background-size: 5px 9px;
+    }
+
+    &::before {
+        content: '';
+        background: $secondaryColor;
+        position: absolute;
+        left: 50%; right: 50%; bottom: 0;
+        height: 1px;
+        transition: 250ms ease;
+    }
+
+    &:hover::before,
+    &.open::before {
+        left: 0; right: 0;
     }
 
     .options {
@@ -78,5 +93,12 @@ $timingOffset: 0.4;
                 }
             }
         }
+    }
+}
+
+// Retina
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .dropdown::after {
+        background-image: url('/images/dropdown-arrow@2x.png');
     }
 }

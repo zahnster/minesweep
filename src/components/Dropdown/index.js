@@ -23,10 +23,10 @@ class Dropdown extends Component {
 			<div className={dropdownClass}>
 				<div className='label' onClick={this.toggleDropdown}>start new game</div>
 				<ul className='options'>
-					<li>easy</li>
-					<li>medium</li>
-					<li>hard</li>
-					<li>evil</li>
+					<li>easy (10 x 10 x 10)</li>
+					<li>medium (10 x 20 x 25)</li>
+					<li>hard (15 x 20 x 50)</li>
+					<li>evil (20 x 25 x 100)</li>
 				</ul>
 			</div>
 		)
