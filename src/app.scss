@@ -14,11 +14,24 @@ html {
 body {
 	background: $backgroundColor;
 	color: $primaryColor;
+	user-select: none;
 }
 
 body,
 input {
 	font-family: 'Slabo 13px';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+	font-weight: normal;
+	cursor: default;
 }
 
 .app {

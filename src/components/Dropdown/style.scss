@@ -1,0 +1,82 @@
+@import '../../vars';
+
+// amimation vars
+$duration: 200ms;
+$options: 4;
+$timingOffset: 0.4;
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-right: 5px;
+    cursor: pointer;
+    transform: translateZ(0);
+    color: $secondaryColor;
+    text-align: left;
+
+    &::after {
+        content: '';
+        height: 9px; width: 5px;
+        position: absolute;
+        left: 100%; top: 50%;
+        margin-top: -4px;
+        transition: $duration ease;
+        background: url('/images/dropdown-arrow.png') center no-repeat;
+    }
+
+    .options {
+        position: absolute;
+        overflow: hidden;
+        padding: 3px 15px;
+        list-style: none;
+        color: lighten($secondaryColor, 15);
+        line-height: 1.6;
+        pointer-events: none;
+
+        li {
+            opacity: 0;
+            white-space: nowrap;
+            position: relative;
+            transition-property: opacity, top;
+            transition-duration: $duration;
+            transition-timing-function: ease;
+            top: -50px;
+            transition-duration: $duration * 0.6, $duration;
+            cursor: pointer;
+
+            &:hover {
+                color: lighten($secondaryColor, 30);
+            }
+
+            // delay on closing elements
+            @for $i from 1 through $options {
+                &:nth-child(#{$i}) {
+                    transition-delay: $duration * ($options - $i) * $timingOffset;
+                }
+            }
+        }
+    }
+
+    &.open {
+        &::after {
+            transform: rotate(90deg);
+        }
+
+        .options {
+            height: auto;
+            pointer-events: auto;
+
+            li {
+                opacity: 1;
+                top: 0;
+
+                // delay on opening elements
+                @for $i from 1 through $options {
+                    &:nth-child(#{$i}) {
+                        transition-delay: $duration * $i * $timingOffset;
+                    }
+                }
+            }
+        }
+    }
+}

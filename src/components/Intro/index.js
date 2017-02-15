@@ -1,4 +1,6 @@
 import React from 'react'
+import Dropdown from '../Dropdown'
+
 import './style.css'
 
 export default (props) => {
@@ -8,12 +10,7 @@ export default (props) => {
 				<h1 className='title'>minesweep</h1>
 
 				<div className='controls'>
-					<a href='#' onClick={(e) => {
-						e.preventDefault()
-						props.playRandomGame()}}>
-
-						play random game
-					</a>
+					<Dropdown />
 					
 					<span className='or'>or</span>
 					

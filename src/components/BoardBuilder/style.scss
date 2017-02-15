@@ -19,69 +19,70 @@ $cellSize: 2rem;
 		margin-top: 6rem;
 		position: relative;
 		display: inline-block;
+		background: $tertiaryColor;
 
 		.row {
 			line-height: 0;
-			margin: 2px 0;
+
+			&:not(:first-child) {
+				margin-top: 2px;
+			}
 		}
 
 		.cell {
 			background: $primaryColor;
 			height: $cellSize; width: $cellSize;
-			margin-right: 2px;
 			display: inline-block;
+
+			&:not(:first-child) {
+				margin-left: 2px;
+			}
 		}
 
 		.controls {
+			$cellSize: 32px;
+			$gutter: 2px;
+			$controlsSize: $cellSize * 5 + $gutter * 4;
 			position: absolute;
+			display: flex;
+			justify-content: space-between;
 
 			.control {
-				position: absolute;
 				-webkit-appearance: none;
 				border: none;
 				background: none;
 				color: $primaryColor;
-				font-size: 4rem;
-				line-height: 0.8;
-				outline: none;
+				height: $cellSize; width: $cellSize;
+				text-indent: -5000rem;
+				overflow: hidden;
 				cursor: pointer;
+				outline: none;
+				background: url('/images/minus.png') center no-repeat;
 
-				&:active {
-					text-shadow: 0 0 5px $primaryColor;
+				&.add {
+					background-image: url('/images/plus.png');
 				}
 			}
 
 			&.controls-row {
-				right: 100%; top: 0; bottom: 0;
-				width: 4rem;
-
-				.subtract {
-					top: 0;
-					right: 1.4rem;
-				}
-
-				.add {
-					bottom: 0;
-					right: 1rem;
-				}
+				right: 100%; top: 50%;
+				height: $controlsSize;
+				margin-top: -($controlsSize/2);
+				flex-direction: column;
+				margin-right: 20px;
 			}
 
 			&.controls-col {
-				bottom: 100%; left: 0; right: 0;
-				height: 4rem;
-
-				.subtract {
-					left: 0;
-				}
-
-				.add {
-					right: 0;
-				}
+				bottom: 100%; left: 50%;
+				width: $controlsSize;
+				margin-left: -($controlsSize/2);
+				margin-bottom: 20px;
 			}
 		}
 	}
 
 	.bomb-count {
+		font-size: 3rem;
 		margin-top: 1rem;
 
 		&::before {
@@ -105,8 +106,6 @@ $cellSize: 2rem;
 				background: lighten($backgroundColor, 2%)
 			}
 		}
-
-		font-size: 3rem;
 	}
 
 	&.game-state-enter {

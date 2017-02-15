@@ -51,11 +51,11 @@ class BoardBuilder extends Component {
 		let bombs = e.target.value
 		if (bombs > maxBombs) bombs = maxBombs
 
-		console.log(maxBombs)
-
-		// if (bombs < 5) bombs = 5
-
 		this.setState({ bombs })
+	}
+
+	startGame() {
+		
 	}
 
 	render() {
@@ -76,6 +76,14 @@ class BoardBuilder extends Component {
 					<h1 className='title'>Build your board</h1>
 
 					<div className='board-builder-board'>
+						{board.map((row, rowIndex) => {
+							return (
+								<div key={`row-${rowIndex}`} className='row'>
+									{row.map(cell => cell)}
+								</div>
+							)
+						})}
+
 						<div className='controls controls-row'>
 							<button onClick={this.subtractRow} className='control subtract'>-</button>
 							<button onClick={this.addRow} className='control add'>+</button>
@@ -85,19 +93,16 @@ class BoardBuilder extends Component {
 							<button onClick={this.subtractCol} className='control subtract'>-</button>
 							<button onClick={this.addCol} className='control add'>+</button>
 						</div>
-
-						{board.map((row, rowIndex) => {
-							return (
-								<div key={`row-${rowIndex}`} className='row'>
-									{row.map(cell => cell)}
-								</div>
-							)
-						})}
 					</div>
 
-					<div className='bomb-count'>
-						<input type='text' onChange={(e) => this.setBombs(e)} value={this.state.bombs} />
+					<div className='bombs-and-go'>
+						<div className='bomb-count'>
+							<input type='text' onChange={(e) => this.setBombs(e)} value={this.state.bombs} />
+						</div>
+						
+						<button onClick={this.startGame}>start</button>
 					</div>
+
 				</div>
 			</div>
 		)
