@@ -73,7 +73,9 @@ class App extends Component {
                 <ReactCSSTransitionGroup
                     transitionName='game-state'
                     transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}>
+                    transitionLeaveTimeout={500}
+                    transitionAppearTimeout={100}
+                    transitionAppear={true}>
                         {gameStateComponent}
                 </ReactCSSTransitionGroup>
             </div>
