@@ -14,3 +14,4 @@ build
 .env
 *.css
 npm-debug.log
+.next
